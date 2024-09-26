@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+
+    color: white;
+
+    background-image: radial-gradient( circle farthest-corner at 48.4% 47.5%,  rgba(122,183,255,1) 0%, rgba(21,83,161,1) 90% );
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1359px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1360px) and (max-width: 1919px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1920px) {
+    html {
+        font-size: 22px;
+    }
+}
+
+.open-sans-font {
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+
+main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-section{
+    width: 28rem;
+    height: 30rem;
+    border-radius: 12px;
+    background-image: linear-gradient(to top, #09203f 0%, #46657c 100%);
+
+    @media (max-width: 768px) {
+       width: 20rem;
+       height: 32rem;
+    }
+}
+
+.first-section form {
+    display:flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap:2rem;
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+        gap:2.3rem;
+    }
+}
+
+.info-field{
+    display: flex;
+    flex-direction:  column;
+    width: 100%;
+    height: 5rem;
+    gap: 8px;
+}
+
+.info-field input {
+    padding:8px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+.info-field input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+#erro-user, #erro-password{
+    opacity: 0;
+    color:  rgb(255, 0, 0);
+}
+
+.submit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 0.6rem;
+}
+
+.submit button{
+    width: 30%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.submit button:hover{
+    background-color: rgb(185, 185, 185);
+}
+
+
+#message {
+    opacity: 0;
+    max-width: 100%;
+    color: rgb(44, 219, 44);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (max-width: 768px) {
+        text-align: center;
+        text-wrap: wrap;
+    }
+}
+
+#forgot-pass {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 20rem;
+    height: 10rem;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap:1rem;
+}
+
+.modal-content input {
+    padding:  8px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.modal-content button {
+    width: 30%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 1px black solid;
+}
+
+.modal-content button:hover {
+    background-color: rgb(185, 185, 185);
+}
+
+.close {
+    position: absolute;
+    top: 0px;
+    right: 5px; 
+    color: #aaa;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#erro-user, #erro-password, #message {
+    transition: ease-in 0.3s;
+}

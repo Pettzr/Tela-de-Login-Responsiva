@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Front End</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <script>
+        const handleSubmit = (event) => {
+            event.preventDefault()
+            const user = document.getElementById('user').value.trim()
+            const password = document.getElementById('password').value.trim()
+
+            if (user === '') {
+                document.getElementById('erro-user').style = 'opacity: 1'        
+            } else {
+                document.getElementById('erro-user').style = 'opacity: 0'
+            }
+
+            if ( password === '') {
+                document.getElementById('erro-password').style = 'opacity: 1'
+            } else {
+                document.getElementById('erro-password').style = 'opacity: 0'
+            }
+
+            if (user !== '' && password !== ''){
+                const message = document.getElementById('message')
+                message.style = 'opacity: 1'
+                message.innerHTML = `Usuário ${user} logado com sucesso`;
+
+                setTimeout(() => {
+                    message.style = 'opacity: 0'
+                }, 3000)
+
+            } else {
+                document.getElementById('message').style = 'opacity: 0'
+            }
+        }
+
+        const handleForgotPassword = () => {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        const handleCloseModal = () => {
+            const user = document.getElementById('modal-user').value.trim()
+            document.getElementById('modal-user').value = ''
+            document.getElementById('modal').style.display = 'none';
+
+            const message = document.getElementById('message')
+     
+            if(user !== '') {
+                message.style = 'opacity: 1'
+                message.innerHTML = `Um e-mail foi enviado ao usuário ${user}!`;
+
+                setTimeout(() => {
+                    message.style = 'opacity: 0'
+                }, 3000)
+
+            } else {
+                message.style = 'opacity: 0'
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <main>
+        <section class="first-section">
+            <form onsubmit="handleSubmit(event)">
+                <h1> Fazer Login </h1>
+                <div class="info-field">
+                    <h2> Usuário </h2>
+                    <input id="user" type="text" placeholder="Insira seu nome de usuário">
+                    <p id="erro-user"> Este campo precisa ser preenchido. </p>
+                </div>
+                <div class="info-field">
+                    <h2> Senha </h2>
+                    <input id="password" type="password" placeholder="Insira sua senha">
+                    <p id="erro-password"> Este campo precisa ser preenchido. </p>
+                </div>
+                <div class="submit">
+                    <p id="forgot-pass" onclick="handleForgotPassword(event)">Esqueceu sua senha?</p>
+                    <button type="submit"> Entrar </button>
+                    <p id="message"> Usuário logado com sucesso </p>
+                </div>
+            </form>
+        </section>
+    </main>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="handleCloseModal()">✖︎</span>
+            <h3>Recuperar Senha</h3>
+            <input id="modal-user" type="text" placeholder="Insira seu nome de usuário">
+            <button onclick="handleCloseModal()">Enviar</button>
+        </div>
+    </div>
+</body>
+</html>
